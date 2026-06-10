@@ -1,3 +1,5 @@
+import os.path
+
 from flask import render_template, request, redirect, url_for
 from sqlalchemy import select
 
@@ -26,3 +28,19 @@ def index():
         mqtt.subscribe(name)
         return redirect(url_for(".index"))
     return render_template("subscribe/index.html", form=form, topic=topic)
+
+@subscribe.route("/logs", defaults={"id": 0})
+@subscribe.route("/logs/<int:id>", methods=["GET"])
+def logs(id):
+    """Route for Flask. Displays logging messages.
+    """
+    file = "./logs/app.log"
+    content = ""
+    maxBackups = 5
+    ids = [n for n in range(maxBackups)]
+    if id > 0:
+        file += ("." + str(id))
+    if os.path.isfile(file):
+        with open(file) as f:
+            content = f.read()
+    return render_template("subscribe/logs.html", content=content, ids=ids)

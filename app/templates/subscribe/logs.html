@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row">
+    <div class="column-full">
+        <div class="link-container">
+            {% for id in ids %}
+                <a class="link logs" href="{{ url_for('subscribe.logs', id=id) }}">{{ id }}</a>
+            {% endfor %}
+        </div>
+        <pre>{{ content }}</pre>
+    </div>
+</div>
+{% endblock %}
