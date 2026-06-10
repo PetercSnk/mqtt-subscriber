@@ -26,14 +26,14 @@ def messageHandler(client, userdata, message):
     
     with mqtt.app.app_context():
         topic = db.session.execute(select(Topic)).scalar_one_or_none()
-        
+
     if intPayload > 0 and not topic.runStatus:
         scheduler.add_job(func=process, id=topic.name, name=topic.name,
                             args=[intPayload])
     elif intPayload == 0 and topic.runStatus:
         event.set()
     else:
-        mqtt.app.logger.info("Cannot execute or cancel at this time.")
+        mqtt.app.logger.warning("Cannot execute or cancel at this time.")
 
 
 def process(timeSeconds):
