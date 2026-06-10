@@ -1,0 +1,8 @@
+flask==3.1.1
+flask-sqlalchemy==3.1.1
+pyyaml==6.0.2
+flask-wtf==1.2.2
+bootstrap-flask==2.5.0
+flask-mqtt==1.2.1
+flask-apscheduler==1.13.1
+gunicorn==23.0.0

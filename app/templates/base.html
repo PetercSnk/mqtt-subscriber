@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        {% block head %}{% endblock %}
+        <!-- Bootstrap CSS -->
+        {{ bootstrap.load_css() }}
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+        {% block styles %}{% endblock %}
+    </head>
+    <body>
+        {% from "bootstrap5/nav.html" import render_nav_item %}
+        <nav class="navbar">
+            <div class="container-fluid">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        {{ render_nav_item("subscribe.index", "Home") }}
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <!-- Page content -->
+        {% block content %}{% endblock %}
+        <!-- JavaScript -->
+        {{ bootstrap.load_js() }}
+        {% block scripts %}{% endblock %}
+    </body>
+</html>
