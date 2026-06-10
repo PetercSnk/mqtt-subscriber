@@ -6,3 +6,4 @@ bootstrap-flask==2.5.0
 flask-mqtt==1.2.1
 flask-apscheduler==1.13.1
 gunicorn==23.0.0
+RPi.GPIO==0.7.1
