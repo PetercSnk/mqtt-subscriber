@@ -9,8 +9,8 @@ class Config:
     """
     SECRET_KEY = secrets.token_urlsafe(16)
     SQLALCHEMY_DATABASE_URI = "sqlite:///" + os.path.join(baseDir, "app.db")
-    MQTT_BROKER_URL = "broker.emqx.io"
-    MQTT_BROKER_PORT = 1883
+    MQTT_BROKER_URL = ""
+    MQTT_BROKER_PORT = 0
     MQTT_USERNAME = ""
     MQTT_PASSWORD = ""
     MQTT_KEEPALIVE = 5
