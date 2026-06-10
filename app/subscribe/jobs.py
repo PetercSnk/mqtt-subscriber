@@ -37,8 +37,7 @@ def messageHandler(client, userdata, message):
 
 
 def process(timeSeconds):
-    """Toggles the physical system using the on and off functions. What these
-    functions do can be changed freely within the systems file.
+    """Toggles the physical system using the on and off functions.
     """
     with scheduler.app.app_context():
         topic = db.session.execute(select(Topic)).scalar_one_or_none()
